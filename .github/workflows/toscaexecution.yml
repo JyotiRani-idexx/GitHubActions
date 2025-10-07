@@ -1,0 +1,23 @@
+name: Trigger Tosca
+
+# Trigger the workflow manually
+on:
+  workflow_dispatch:
+    inputs:
+      events:
+        description: 'Events value'
+        required: false
+        default: '["DEX Standalone"]' # Default value as a JSON array
+
+jobs:
+  run-tosca:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Run the Tosca Execution Client
+      - name: Run Tosca Execution Client
+        run: pwsh ./scripts/tosca_execution_client.ps1 -toscaServerUrl "https://vrtqtosca.qasymphony.support" -events '${{ github.event.inputs.events }}' -projectName "VRT_Sample" -clientId "${{ secrets.TOSCA_CLIENT_ID }}" -clientSecret "${{ secrets.TOSCA_CLIENT_SECRET }}"
