@@ -20,6 +20,4 @@ jobs:
 
       # Step 2: Run the Tosca Execution Client
       - name: Run Batch File
-        run: |
-          echo "Running POC batch file..."
-          .\RunPOCEvent.bat
+        run: cmd /c RunPOCEvent.bat
