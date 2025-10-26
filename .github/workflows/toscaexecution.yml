@@ -20,4 +20,4 @@ jobs:
 
       # Step 2: Run the Tosca Execution Client
       - name: Run Tosca Execution Client
-        run: pwsh ./ToscaExecutionClient-main/tosca_execution_client.ps1 -toscaServerUrl "https://awstoscap01.idexxi.com" -events '${{ github.event.inputs.events }}' -projectName "IDEXX_Salesforce_Automation" -clientId "${{ secrets.PhWpOWsQPkGsto-JRKpSqw }}" -clientSecret "${{ secrets.ux0Nqp6-fUC4covZX2Z68w1uoqvzbto0mMJLxlnJ-sZQ }}"
+        run: pwsh ./ToscaExecutionClient-main/tosca_execution_client.ps1 -toscaServerUrl "https://awstoscap01.idexxi.com" -events '${{ github.event.inputs.events }}' -projectName "IDEXX_Automation" -clientId "${{ secrets.PhWpOWsQPkGsto-JRKpSqw }}" -clientSecret "${{ secrets.ux0Nqp6-fUC4covZX2Z68w1uoqvzbto0mMJLxlnJ-sZQ }}"
