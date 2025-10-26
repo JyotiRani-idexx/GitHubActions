@@ -1,23 +1,17 @@
 name: Trigger Tosca SAP Execution
 
-# Trigger the workflow manually
 on:
   workflow_dispatch:
-    inputs:
-      events:
-        description: 'Events value'
-        required: false
-        default: '["DEX Standalone"]' # Default value as a JSON array
 
 jobs:
-  run-tosca:
+  run-batch:
     runs-on: windows-latest
 
     steps:
-      # Step 1: Check out the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      # Step 2: Run the Tosca Execution Client
       - name: Run Batch File
-        run: cmd /c RunPOCEvent.bat
+        working-directory: EventFiles
+        run: cmd /c "RunPOCEvent.bat"
+        shell: cmd
