@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       # Step 2: Run the Tosca Execution Client
-      - name:  |
+      - name: Run Batch File
+        run: |
           echo "Running POC batch file..."
           .\RunPOCEvent.bat
